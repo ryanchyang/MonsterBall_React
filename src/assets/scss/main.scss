@@ -1,0 +1,261 @@
+@import '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'LufgaBold';
+  src: url(../fonts/LufgaBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'BoldenVan';
+  src: url(../fonts/BoldenVan.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'bahnschrift';
+  src: url(../fonts/bahnschrift.ttf) format('truetype');
+}
+
+// 共用variable
+$darker-green: #0fd8c6;
+$green: #46ecdc;
+$font-primary: #f1eacf;
+$green-button: rgb(103, 166, 94);
+$bluegreen-button: rgb(50, 176, 142);
+// reset browser
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+// 共用class 開始
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin pc {
+  @media (min-width: 1264px) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// Btn
+@mixin btn($color) {
+  border: none;
+  white-space: nowrap;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 45px;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 22px;
+  color: $font-primary;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px 0px darken($color, 5%);
+  padding: 5px 20px;
+  background-color: $color;
+  &:hover {
+    background: lighten($color, 3%);
+  }
+  &:disabled {
+    opacity: 0.5;
+    background: $color;
+  }
+}
+
+.text-primary {
+  color: $font-primary !important;
+}
+
+.color-green {
+  color: $green;
+}
+.color-darker-green {
+  color: $darker-green;
+}
+.color-light-green {
+  color: #0cfd7d;
+}
+
+.font-LufgaBold {
+  font-family: 'LufgaBold';
+}
+.font-BoldenVan {
+  font-family: 'BoldenVan';
+}
+
+// main 開始
+html {
+  font-size: 62.5%;
+}
+
+section {
+  padding: 37.5px 40px;
+}
+
+a {
+  text-decoration: none;
+}
+h2 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: $font-primary;
+  font-family: 'BoldenVan';
+  font-weight: bold;
+  @include xl {
+    font-size: 3.6rem;
+    letter-spacing: 3px;
+  }
+}
+h3 {
+  font-size: 2.8rem;
+  @include xl {
+    font-size: 3rem;
+  }
+}
+h4 {
+  font-size: 2.4rem;
+  @include xl {
+    font-size: 2.8rem;
+  }
+}
+h5 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1.8rem;
+  @include xl {
+    font-size: 2rem;
+  }
+}
+
+.t-14 {
+  font-size: 1.4rem;
+}
+.t-16 {
+  font-size: 1.6rem;
+}
+.t-18 {
+  font-size: 1.8rem;
+}
+.t-20 {
+  font-size: 2rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

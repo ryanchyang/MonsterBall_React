@@ -1,0 +1,22 @@
+.whatsnew-area {
+  background-color: #001f1b;
+
+  .whatsnew-card-img {
+    width: 100%;
+    height: auto;
+    img {
+      width: 100%;
+      height: 100%;
+      transform: scale(1.1);
+    }
+  }
+  .whatsnew-card-text {
+    &::after {
+      display: block;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: #295c5c;
+    }
+  }
+}
