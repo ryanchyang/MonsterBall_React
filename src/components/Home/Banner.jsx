@@ -6,18 +6,18 @@ const Banner = () => {
   return (
     <>
       <section className="banner d-flex flex-column">
-        <div className="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-12 d-flex flex-column justify-content-center-sm">
+        <div className="col-sm-12 col-md-12  col-xl-6 col-12 d-flex flex-column justify-content-center">
           <h2 className="banner-text-align">Monsterball</h2>
           <h2 className="color-darker-green banner-text-align">
             Ready to kick !!
           </h2>
-          <p className="font-BoldenVan text-primary px-2 banner-text-align">
+          <p className="font-BoldenVan text-primary px-2 banner-text-align text-start mx-lg-0 mx-5 mb-5">
             In a world full of monsters, form a strong football team and there
             are monsters of various attributes waiting for you to collect, come
             and enter this fantasy world!
           </p>
         </div>
-        <div className="d-flex justify-content-center justify-content-lg-start">
+        <div className="d-flex justify-content-center justify-content-xl-start">
           <div className="me-4">
             <button className="banner-btn-green font-BoldenVan">
               <div className="banner-btn-icon">

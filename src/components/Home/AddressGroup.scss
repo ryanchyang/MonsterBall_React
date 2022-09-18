@@ -1,8 +1,13 @@
+@import '../../assets/scss/main.scss';
+
 .address-group-area {
   background-color: #295c5c;
 
   .mfb-address {
     position: relative;
+    @include lg {
+      font-size: 1.8rem;
+    }
     &::before {
       display: block;
       content: '';
@@ -24,6 +29,9 @@
 
   .gold-address {
     position: relative;
+    @include lg {
+      font-size: 1.8rem;
+    }
     &::before {
       display: block;
       content: '';

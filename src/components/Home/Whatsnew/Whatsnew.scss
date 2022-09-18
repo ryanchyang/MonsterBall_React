@@ -1,5 +1,10 @@
+@import '../../../assets/scss/main.scss';
+
 .whatsnew-area {
-  background-color: #001f1b;
+  background-color: $home-bg;
+  @include xl {
+    padding: 60px 80px;
+  }
 
   .whatsnew-card-img {
     width: 100%;

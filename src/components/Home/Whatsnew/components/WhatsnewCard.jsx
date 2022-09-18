@@ -6,7 +6,7 @@ import { FaTelegramPlane } from 'react-icons/fa';
 
 const WhatsnewCard = () => {
   return (
-    <div className="font-LufgaBold">
+    <div className="font-LufgaBold p-lg-5">
       <div className="whatsnew-card-img">
         <img src={MonsterCard1} alt="monster-card" />
       </div>
