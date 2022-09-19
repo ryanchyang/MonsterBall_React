@@ -1,3 +1,4 @@
+import Navbar from '../components/Navbar';
 import Banner from '../components/Home/Banner';
 import AddressGroup from '../components/Home/AddressGroup';
 import IntroVideo from '../components/Home/IntroVideo';
@@ -17,8 +18,9 @@ const Home = () => {
   return (
     <>
       <main>
+        <Navbar />
         <Banner />
-        <AddressGroup />
+        <AddressGroup currentWidth={currentWidth} />
         {currentWidth > Number(process.env.REACT_APP_LG_WIDTH) && (
           <IntroVideo />
         )}

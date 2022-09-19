@@ -7,7 +7,7 @@ import { MdEmail } from 'react-icons/md';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="my-footer">
       <div className="d-flex flex-column justify-content-center align-items-center align-items-lg-start">
         <h2 className="mb-4">KEEP IN TOUCH !!</h2>
         <form className="mb-4 mb-lg-0 d-flex flex-column flex-lg-row">

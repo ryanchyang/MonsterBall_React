@@ -3,12 +3,14 @@ import navbarImage from '../assets/images/header/menu_bg.png';
 import navbarLogoMb from '../assets/images/logo_mb.png';
 import navbarLogoPc from '../assets/images/logo_pc.png';
 import navbarWallet from '../assets/images/header/btn_money.png';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
+// https://monsterfootball-1.gitbook.io/untitled/
 const Navbar = () => {
+  const history = useHistory(null);
   return (
-    <header className="navbar">
+    <header className="my-navbar">
       <div className="navbar-content w-100 d-flex justify-content-between align-items-center">
         <div className="w-100 d-flex align-items-start">
           {/* logo */}
@@ -27,7 +29,16 @@ const Navbar = () => {
                 <span>Gamplay</span>
               </li>
               <li>
-                <span>Paper</span>
+                <span
+                  onClick={() =>
+                    window.open(
+                      'https://monsterfootball-1.gitbook.io/untitled/',
+                      '_blank'
+                    )
+                  }
+                >
+                  Paper
+                </span>
               </li>
               <li>
                 <span>Road map</span>
@@ -36,7 +47,7 @@ const Navbar = () => {
                 <span>NFT item</span>
               </li>
               <li>
-                <span>Market</span>
+                <span onClick={() => history.push('/market')}>Market</span>
               </li>
               <li>
                 <span>DApp</span>

@@ -19,6 +19,11 @@
     background-size: 100% auto;
     height: 45vw;
   }
+  h2:first-child {
+    @include lg {
+      color: #30ad8f;
+    }
+  }
   h2 {
     line-height: 1.5;
   }

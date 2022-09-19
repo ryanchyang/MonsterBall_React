@@ -15,7 +15,17 @@ const NftItem = () => {
           Combine multiple major Monster types with hundreds of coats body parts
           and mode, creating infinite possibilities of Monster
         </p>
-        <button className="nft-item-btn mt-4">READ WHITE PAPER</button>
+        <button
+          className="nft-item-btn mt-4"
+          onClick={() =>
+            window.open(
+              'https://monsterfootball-1.gitbook.io/untitled/',
+              '_blank'
+            )
+          }
+        >
+          READ WHITE PAPER
+        </button>
       </div>
       <div className="nft-item-monster-block">
         <ul className="nft-item-monster-list">

@@ -1,16 +1,32 @@
 import './Banner.scss';
 import coinMfb from '../../assets/images/coin_mfb.png';
 import coinGold from '../../assets/images/coin_gold.png';
+import { motion as m } from 'framer-motion';
+import { fadeInFromLeft } from '../../utils/constants/framerConstant';
 
 const Banner = () => {
   return (
     <>
       <section className="banner d-flex flex-column">
         <div className="col-sm-12 col-md-12  col-xl-6 col-12 d-flex flex-column justify-content-center">
-          <h2 className="banner-text-align">Monsterball</h2>
-          <h2 className="color-darker-green banner-text-align">
+          <m.h2
+            className="banner-text-align"
+            variants={fadeInFromLeft}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            Monsterball
+          </m.h2>
+          <m.h2
+            className="color-darker-green banner-text-align"
+            variants={fadeInFromLeft}
+            initial="hidden"
+            animate="slowVisible"
+            exit="exit"
+          >
             Ready to kick !!
-          </h2>
+          </m.h2>
           <p className="font-BoldenVan text-primary px-2 banner-text-align text-start mx-lg-0 mx-5 mb-5">
             In a world full of monsters, form a strong football team and there
             are monsters of various attributes waiting for you to collect, come
