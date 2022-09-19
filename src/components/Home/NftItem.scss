@@ -1,6 +1,7 @@
 @import '../../assets/scss/main.scss';
 
 .nft-item-area {
+  margin-top: -1px;
   position: relative;
   background-color: $home-bg;
   @include lg {
