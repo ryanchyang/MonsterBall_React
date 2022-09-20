@@ -543,3 +543,77 @@ export const dataPanel = [
     ],
   },
 ];
+
+export const filterCate = [
+  {
+    title: 'Categories',
+    content: [
+      {
+        field: 'Art',
+        checked: 'checked',
+      },
+      {
+        field: 'Music',
+        checked: '',
+      },
+      {
+        field: 'Domain Names',
+        checked: '',
+      },
+      {
+        field: 'Virtual Worlds',
+        checked: '',
+      },
+      {
+        field: 'Trading Cards',
+        checked: '',
+      },
+      {
+        field: 'Collectibles',
+        checked: '',
+      },
+      {
+        field: 'Sports',
+        checked: '',
+      },
+      {
+        field: 'Utility',
+        checked: 'checked',
+      },
+    ],
+  },
+  {
+    title: 'File Types',
+    content: [
+      {
+        field: 'Image',
+        checked: 'checked',
+      },
+      {
+        field: 'Video',
+        checked: '',
+      },
+      {
+        field: 'Audio',
+        checked: '',
+      },
+    ],
+  },
+  {
+    title: 'Currencies',
+    content: [
+      {
+        field: 'BNB',
+        checked: 'checked',
+      },
+      {
+        field: 'BUSD',
+        checked: '',
+      },
+      {
+        field: 'ETH',
+        checked: '',
+      },
+    ],
+  },
+];

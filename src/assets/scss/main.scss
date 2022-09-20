@@ -130,6 +130,9 @@ input:focus {
   box-shadow: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 // 共用class 開始
 @mixin mobile {
   @media (max-width: 375px) {
@@ -146,8 +149,13 @@ input:focus {
     @content;
   }
 }
-@mixin sm {
+@mixin mb {
   @media (max-width: 576px) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: 576px) {
     @content;
   }
 }
@@ -163,6 +171,12 @@ input:focus {
 }
 @mixin xl {
   @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: 1560px) {
     @content;
   }
 }
@@ -298,6 +312,16 @@ p {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+// Market
+.market-place-container {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  @include sm {
+    display: block;
+  }
 }
 
 @keyframes moveupdown {

@@ -5,38 +5,75 @@
   padding-top: 100px;
 
   .market-place-tab-block {
+    background-color: #1f1f2c;
+    width: 100%;
     color: white;
     font-family: 'LufgaBold';
     font-size: 2.4rem;
     display: flex;
+    @include sm {
+      z-index: 999;
+      position: fixed;
+      top: 50px;
+    }
   }
   .market-place-tab {
     padding: 28px 23px 30px 40px;
     opacity: 0.5;
-    transition: 0.3s;
+    transition: opacity 0.3s;
     cursor: pointer;
     &:hover {
       opacity: 1;
     }
   }
+  .market-place-content-block {
+    padding-top: 45px;
+    z-index: 1;
+  }
+  .market-place-sort-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    padding: 70px 50px 0px 50px;
+    width: 100%;
+    background-color: #14141f;
+    @include sm {
+      width: 83%;
+    }
+  }
+
   .market-place-card-block {
     margin-left: auto;
-    padding: 50px 30px;
-    width: 83%;
+    padding: 40px 50px 50px 50px;
+    width: 100%;
     font-family: 'LufgaBold';
-    background-color: #1f1f2c;
+    background-color: #14141f;
     display: grid;
     gap: 30px;
-    @include xl {
-      grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+    grid-template-columns: 0.5fr 0.5fr;
+    @include sm {
+      width: 83%;
     }
-    grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+    @include mb {
+      grid-template-columns: 1fr;
+    }
+    @include xl {
+      grid-template-columns: 0.33fr 0.33fr 0.33fr;
+    }
+    @include xxl {
+      grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+    }
   }
   .market-place-card {
     padding: 25px;
     width: 100%;
     background-color: #343444;
     border-radius: 15px;
+    transition: ease-in-out 0.3s;
+    &:hover {
+      transform: translateY(-10px);
+    }
     .card-header {
       height: 50px;
     }
@@ -77,6 +114,17 @@
       height: 15vw;
       border-radius: 15px;
       overflow: hidden;
+      height: 30vw;
+      @include mb {
+        height: 50vw;
+      }
+      @include xl {
+        height: 20vw;
+      }
+      @include xxl {
+        height: 15vw;
+      }
+
       img {
         transform: scale(1.2);
         width: 100%;
@@ -107,4 +155,11 @@
       }
     }
   }
+}
+// 修改react tabs css
+.react-tabs__tab--selected {
+  border-color: #1c1d1f;
+  border-bottom: 4px solid $green;
+  color: white;
+  opacity: 1 !important;
 }

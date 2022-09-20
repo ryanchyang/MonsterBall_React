@@ -25,9 +25,9 @@ const MarketPlaceContent = () => {
             </Tab>
           ))}
         </TabList>
-        {dataPanel.map(data => (
+        {data.map(data => (
           <TabPanel key={data.id}>
-            <div className="option">
+            <div className="option market-place-sort-block">
               <h2 className="title">1,000 Items</h2>
               <div className="view">
                 <Dropdown>
@@ -76,7 +76,7 @@ const MarketPlaceContent = () => {
             <div className="market-place-card-block">
               {data.dataContent.slice(0, visible).map((item, key) => (
                 <div key={key} className="market-place-card">
-                  <div className="card-header d-flex justify-content-between align-items-end mb-3">
+                  <div className="card-header d-flex justify-content-between align-items-center mb-3">
                     <div className="author d-flex">
                       <div className="avatar">
                         <img src={item.imgAuthor} alt="Axies" />
@@ -137,84 +137,6 @@ const MarketPlaceContent = () => {
                     className="sc-button loadmore fl-button pri-3"
                     onClick={showMoreItems}
                   >
-                    <span>Load More</span>
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="content-item2">
-              {data.dataContent.slice(0, visible).map((item, index) => (
-                <div key={index} className="col-item">
-                  <div className="sc-card-product menu_card style-h7">
-                    <div className="wrap-media">
-                      <div className="card-media">
-                        <Link to="/item-details-01">
-                          <img src={item.img} alt="Axies" />
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="card-title">
-                      <p>Item Name</p>
-                      <h4>
-                        <Link to="/item-details-01">{item.title}</Link>
-                      </h4>
-                    </div>
-                    <div className="meta-info style">
-                      <p>Creator</p>
-                      <div className="author">
-                        <div className="avatar">
-                          <img src={item.imgAuthor} alt="Axies" />
-                        </div>
-                        <div className="info">
-                          <h4>
-                            {' '}
-                            <Link to="author02.html">
-                              {item.nameAuthor}
-                            </Link>{' '}
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="countdown">
-                      <p>Countdown</p>
-                      <div className="featured-countdown">
-                        <span className="slogan"></span>
-                        {/* <Countdown date={Date.now() + 500000000}>
-                          <span>You are good to go!</span>
-                        </Countdown> */}
-                      </div>
-                    </div>
-                    <div className="wrap-hear">
-                      <button className="wishlist-button heart">
-                        <span className="number-like"> {item.wishlist}</span>
-                      </button>
-                    </div>
-                    <div className="wrap-tag">
-                      <div className="tags">{item.tags}</div>
-                    </div>
-                    <div className="meta-info">
-                      <div className="author">
-                        <div className="info">
-                          <p>Current Bid</p>
-                          <p className="pricing">{item.price}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="button-place-bid">
-                      <button
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        className="sc-button style-place-bid style bag fl-button pri-3"
-                      >
-                        <span>Place Bid</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {visible < data.dataContent.length && (
-                <div className="col-md-12 wrap-inner load-more text-center btn-auction item center">
-                  <Link to="#" className="sc-button loadmore fl-button pri-3">
                     <span>Load More</span>
                   </Link>
                 </div>
