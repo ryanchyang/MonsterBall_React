@@ -1,5 +1,7 @@
 import './App.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { createClient, configureChains, defaultChains } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Market from './pages/Market';

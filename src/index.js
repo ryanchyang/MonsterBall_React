@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { WagmiConfig, createClient } from 'wagmi';
+import { connectors } from './utils/constants/connectors';
+
+const client = createClient({
+  autoConnect: true,
+  connectors,
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <WagmiConfig client={client}>
+      <App />
+    </WagmiConfig>
   </React.StrictMode>,
   document.getElementById('root')
 );

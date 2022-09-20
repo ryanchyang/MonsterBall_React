@@ -2,28 +2,50 @@
 
 .market-place-cate-area {
   background-color: #1f1f2c;
-  padding-top: 100px;
+  padding-top: 120px;
+  @include mb {
+    padding-top: 50px;
+  }
 
   .market-place-tab-block {
     background-color: #1f1f2c;
     width: 100%;
     color: white;
     font-family: 'LufgaBold';
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
     @include sm {
       z-index: 999;
       position: fixed;
-      top: 50px;
+      top: 75px;
+      font-size: 2rem;
+    }
+    @include md {
+      padding: 0;
+      justify-content: start;
+    }
+    @include lg {
+      font-size: 2.4rem;
     }
   }
   .market-place-tab {
-    padding: 28px 23px 30px 40px;
+    padding: 5px;
     opacity: 0.5;
     transition: opacity 0.3s;
     cursor: pointer;
     &:hover {
       opacity: 1;
+    }
+    @include mb {
+      width: 100%;
+    }
+    @include sm {
+      padding: 15px;
+    }
+    @include lg {
+      padding: 28px 23px 30px 40px;
     }
   }
   .market-place-content-block {
@@ -41,6 +63,24 @@
     @include sm {
       width: 83%;
     }
+    .dropdown-menu-item {
+      color: white;
+      font-size: 1.6rem;
+      padding: 10px 15px;
+      font-family: 'LufgaBold';
+      &:hover {
+        color: #14141f;
+      }
+    }
+  }
+  .btn-sort-by {
+    @include btn(transparent);
+    border: 1px solid $dark-bluegreen-button;
+    font-family: 'LufgaBold';
+    &:hover {
+      background-color: $dark-bluegreen-button !important;
+      border: 1px solid $dark-bluegreen-button !important;
+    }
   }
 
   .market-place-card-block {
@@ -51,12 +91,12 @@
     background-color: #14141f;
     display: grid;
     gap: 30px;
-    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-columns: 1fr;
     @include sm {
       width: 83%;
     }
-    @include mb {
-      grid-template-columns: 1fr;
+    @include md {
+      grid-template-columns: 0.5fr 0.5fr;
     }
     @include xl {
       grid-template-columns: 0.33fr 0.33fr 0.33fr;

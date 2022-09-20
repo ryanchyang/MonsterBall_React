@@ -31,10 +31,7 @@ const MarketPlaceContent = () => {
               <h2 className="title">1,000 Items</h2>
               <div className="view">
                 <Dropdown>
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    className="btn-sort-by dropdown"
-                  >
+                  <Dropdown.Toggle className="btn-sort-by dropdown">
                     <svg
                       width="24"
                       height="24"
@@ -64,10 +61,33 @@ const MarketPlaceContent = () => {
                     <span>Low To High</span>
                   </Dropdown.Toggle>
 
-                  <Dropdown.Menu style={{ margin: 0 }}>
-                    <Dropdown.Item href="#">Top rate</Dropdown.Item>
-                    <Dropdown.Item href="#">Mid rate</Dropdown.Item>
-                    <Dropdown.Item href="#">Low rate</Dropdown.Item>
+                  <Dropdown.Menu
+                    className="dropdown-menu"
+                    style={{
+                      margin: 0,
+                      borderRadius: '15px',
+                      width: '100%',
+                      backgroundColor: 'black',
+                    }}
+                  >
+                    <Dropdown.Item className="dropdown-menu-item" href="#">
+                      Price
+                    </Dropdown.Item>
+                    <Dropdown.Item className="dropdown-menu-item" href="#">
+                      VIT
+                    </Dropdown.Item>
+                    <Dropdown.Item className="dropdown-menu-item" href="#">
+                      STR
+                    </Dropdown.Item>
+                    <Dropdown.Item className="dropdown-menu-item" href="#">
+                      AGI
+                    </Dropdown.Item>
+                    <Dropdown.Item className="dropdown-menu-item" href="#">
+                      LUK
+                    </Dropdown.Item>
+                    <Dropdown.Item className="dropdown-menu-item" href="#">
+                      Latest
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

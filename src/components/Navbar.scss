@@ -91,3 +91,38 @@
     display: block;
   }
 }
+
+// navbar2
+
+.my-navbar2 {
+  position: fixed;
+  padding: 0;
+  width: 100%;
+  z-index: 9;
+  background-color: black;
+}
+
+.navbar2-pc {
+  display: flex;
+  color: white;
+  @include lg {
+    display: flex;
+    width: 30%;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 5px 8px;
+      font-size: 2rem;
+      text-align: center;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.navbar2-title {
+  height: 55px;
+}
