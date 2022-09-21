@@ -18,3 +18,29 @@ export const fadeInFromLeft = {
     transition: { ease: 'easeInOut' },
   },
 };
+
+export const sideNavbarVariants = {
+  hidden: {
+    x: '-80vw',
+  },
+  visible: {
+    x: 0,
+    transition: { ease: 'easeInOut', duration: 0.3 },
+  },
+  exit: {
+    x: '-100vw',
+  },
+};
+
+export const maskVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 0.4,
+    transition: { ease: 'easeInOut', duration: 0.2 },
+  },
+  exit: {
+    opacity: 0,
+  },
+};

@@ -1,7 +1,5 @@
 import { forwardRef } from 'react';
 import './NftItem.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper';
 import nftItem from '../../assets/images/home/nftItem/nft_item_01.png';
 
 // Import Swiper styles

@@ -126,3 +126,36 @@
 .navbar2-title {
   height: 55px;
 }
+
+.connect-wallet-metamask-btn {
+  position: relative;
+  @include btn(rgb(244, 244, 244));
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  width: 100%;
+  height: auto;
+  div {
+    width: 50%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.connected-wallet-btn {
+  @include btn($bluegreen-button);
+}
+
+.disconnect-wallet-btn {
+  @include btn($dark-bluegreen-button);
+}
+
+.spinner-container {
+  width: auto;
+  position: absolute;
+  top: -3px;
+  right: -70px;
+  transform: scale(0.5);
+}

@@ -198,7 +198,8 @@ input:focus {
   border-radius: 15px;
   box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.21);
   padding: 5px 20px;
-  background-color: $color;
+  background: $color;
+  transition: background 0.2s;
   &:hover {
     background: lighten($color, 3%);
   }
@@ -312,6 +313,44 @@ p {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+// loader
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 50px !important;
+  height: 50px !important;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid $darker-green;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: $darker-green transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Market
