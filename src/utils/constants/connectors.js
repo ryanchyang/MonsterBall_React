@@ -9,7 +9,51 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 // const infuraId = process.env.INFURA_ID;
 // alchemyProvider({ apiKey: 'yourAlchemyApiKey' })
 // Configure chains for connectors to support
-const { chains } = configureChains(defaultChains, [publicProvider()]);
+
+// 加入binance chain 物件
+const binanceChain = {
+  id: 56,
+  name: 'Binance Smart Chain Mainnet',
+  network: 'Binance Smart Chain Mainnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Binance',
+    symbol: 'BNB',
+  },
+  rpcUrls: {
+    default: 'https://bsc-dataseed.binance.org/',
+  },
+  blockExplorers: {
+    default: { name: 'BscScan', url: 'https://bscscan.com/' },
+  },
+  testnet: false,
+};
+
+const binanceTestChain = {
+  id: 97,
+  name: 'BSC Testnet',
+  network: 'BSC Testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Binance',
+    symbol: 'BNB',
+  },
+  rpcUrls: {
+    default: 'https://data-seed-prebsc-1-s1.binance.org:8545',
+  },
+  blockExplorers: {
+    default: {
+      name: 'BSC Testnet Network',
+      url: 'https://explorer.binance.org/smart-testnet',
+    },
+  },
+  testnet: false,
+};
+
+export const { chains, provider } = configureChains(
+  [...defaultChains, binanceChain, binanceTestChain],
+  [publicProvider()]
+);
 
 // Set up connectors
 export const connectors = [new MetaMaskConnector({ chains })];

@@ -4,11 +4,12 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { WagmiConfig, createClient } from 'wagmi';
-import { connectors } from './utils/constants/connectors';
+import { connectors, provider } from './utils/constants/connectors';
 
 const client = createClient({
   autoConnect: true,
   connectors,
+  provider,
 });
 
 ReactDOM.render(

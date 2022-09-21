@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, forwardRef } from 'react';
 import { useAccount, useConnect, useNetwork, useSwitchNetwork } from 'wagmi';
 import './Navbar.scss';
 import navbarImage from '../assets/images/header/menu_bg.png';
@@ -9,10 +9,12 @@ import { Link, useHistory } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 // https://monsterfootball-1.gitbook.io/untitled/
-const Navbar = () => {
+const Navbar = forwardRef((_, ref) => {
+  const { gamePlayRef, roadmapRef, nftItemRef } = ref;
   const { connect, connectors, activeConnector, isLoading, error } =
     useConnect();
   const { address, isConnected } = useAccount();
+  const { chain, chains } = useNetwork();
 
   const connector = connectors[0]; // 連接Metamask
   const history = useHistory(null);
@@ -62,7 +64,13 @@ const Navbar = () => {
           <div className="navbar-pc">
             <ul className="w-100 d-flex justify-content-between t-16 font-BoldenVan">
               <li>
-                <span>Gamplay</span>
+                <span
+                  onClick={() => {
+                    gamePlayRef.current.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Gamplay
+                </span>
               </li>
               <li>
                 <span
@@ -77,10 +85,22 @@ const Navbar = () => {
                 </span>
               </li>
               <li>
-                <span>Road map</span>
+                <span
+                  onClick={() => {
+                    roadmapRef.current.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Road map
+                </span>
               </li>
               <li>
-                <span>NFT item</span>
+                <span
+                  onClick={() => {
+                    nftItemRef.current.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  NFT item
+                </span>
               </li>
               <li>
                 <span onClick={() => history.push('/market')}>Market</span>
@@ -109,6 +129,6 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
+});
 
 export default Navbar;

@@ -1,10 +1,12 @@
+import { forwardRef } from 'react';
 import './IntroVideo.scss';
 import introVideo from '../../assets/video/index_vedio.mp4';
 
-const IntroVideo = () => {
+const IntroVideo = forwardRef((_, ref) => {
   return (
     <>
       <video
+        ref={ref}
         className="introVideo"
         width="100%"
         height="auto"
@@ -18,6 +20,6 @@ const IntroVideo = () => {
       </video>
     </>
   );
-};
+});
 
 export default IntroVideo;

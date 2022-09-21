@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import './Navbar.scss';
 import { Link } from 'react-router-dom';
 import navbarLogoPc from '../assets/images/logo_pc.png';
 import navbarWallet from '../assets/images/header/btn_money.png';
+import CardModal from './CardModal';
 
 const Navbar2 = () => {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <header className="my-navbar2">
+      {/* 測試modal */}
+      <CardModal show={modalShow} onHide={() => setModalShow(false)} />
       <div className="navbar-content w-100 d-flex justify-content-between align-items-center">
         <div className="w-100 d-flex align-items-start">
           {/* logo */}
@@ -30,7 +35,7 @@ const Navbar2 = () => {
           </div>
         </div>
         {/* wallet */}
-        <div className="navbar-wallet">
+        <div className="navbar-wallet" onClick={() => setModalShow(true)}>
           <img src={navbarWallet} alt="icon-wallet" className="" />
         </div>
       </div>

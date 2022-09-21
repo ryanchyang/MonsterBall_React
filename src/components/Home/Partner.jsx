@@ -37,7 +37,7 @@ const Partner = () => {
       <h2 className="text-center mb-5">Investors and Partners</h2>
       <div className="partner-grid">
         {Array.from({ length: 13 }).map((_, i) => (
-          <div className="partner-img">
+          <div key={i} className="partner-img">
             <img src={partners[`partner${i + 1}`]} alt="partner-logo" />
           </div>
         ))}

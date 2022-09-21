@@ -12,23 +12,28 @@ import Partner from '../components/Home/Partner';
 import Technology from '../components/Home/Technology';
 import Footer from '../components/Footer';
 import useCurrentWidth from '../utils/hooks/useCurrentWidth';
+import { useRef } from 'react';
 
 const Home = () => {
+  const gamePlayRef = useRef(null);
+  const roadmapRef = useRef(null);
+  const nftItemRef = useRef(null);
+  const refs = { gamePlayRef, roadmapRef, nftItemRef };
   const currentWidth = useCurrentWidth();
   return (
     <>
       <main>
-        <Navbar />
+        <Navbar ref={refs} />
         <Banner />
         <AddressGroup currentWidth={currentWidth} />
         {currentWidth > Number(process.env.REACT_APP_LG_WIDTH) && (
-          <IntroVideo />
+          <IntroVideo ref={gamePlayRef} />
         )}
         <Whatsnew />
         <PlayNow />
-        <Roadmap />
+        <Roadmap ref={roadmapRef} />
         <ToMarket />
-        <NftItem />
+        <NftItem ref={nftItemRef} />
         <Team />
         <Partner />
         <Technology />
