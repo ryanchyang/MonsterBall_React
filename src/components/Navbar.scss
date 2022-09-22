@@ -125,6 +125,12 @@
 
 .navbar2-title {
   height: 55px;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .connect-wallet-metamask-btn {
@@ -150,6 +156,19 @@
 
 .disconnect-wallet-btn {
   @include btn($dark-bluegreen-button);
+  width: 60%;
+}
+
+.switch-network-btn {
+  position: relative;
+  @include btn($bluegreen-button);
+  width: 60%;
+
+  .spinner-container {
+    top: -10px;
+    right: 0px;
+    transform: scale(0.3);
+  }
 }
 
 .spinner-container {

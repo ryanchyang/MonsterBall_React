@@ -1,4 +1,5 @@
-import { useEffect, forwardRef } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import {
   useAccount,
   useConnect,
@@ -6,100 +7,81 @@ import {
   useNetwork,
   useSwitchNetwork,
 } from 'wagmi';
+import { shortenAddress } from '../utils/helpers/shortenAddress';
 import './Navbar.scss';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import SideNavbar from './SideNavbar';
+import MyModal from './MyModal';
+import Spinner from './Spinner';
 import navbarImage from '../assets/images/header/menu_bg.png';
 import navbarLogoMb from '../assets/images/logo_mb.png';
 import navbarLogoPc from '../assets/images/logo_pc.png';
 import navbarWallet from '../assets/images/header/btn_money.png';
 import metamaskLogo from '../assets/images/metamask.png';
 import walletconnectLogo from '../assets/images/walletconnect.png';
-import { Link, useHistory } from 'react-router-dom';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import SideNavbar from './SideNavbar';
-import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import MyModal from './MyModal';
-import Spinner from './Spinner';
-import { shortenAddress } from '../utils/helpers/shortenAddress';
 
-// https://monsterfootball-1.gitbook.io/untitled/
+const binanceChainId = 97;
+
 const Navbar = forwardRef((_, ref) => {
   const { gamePlayRef, roadmapRef, nftItemRef } = ref;
   const [sidebarShow, setSidebarShow] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
+  const [connectModalShow, setConnectModalShow] = useState(false);
+  const [switchAlertModalShow, setSwitchAlertModalShow] = useState(false);
 
   // web3 hook start
-  const { connect, connectors, activeConnector, isLoading, error } = useConnect(
-    {
-      onSuccess(data) {
-        checkIfOnChain();
-        setModalShow(false);
-      },
-    }
-  );
+  const {
+    connect,
+    connectors,
+    activeConnector,
+    isLoading: connectIsLoading,
+    error,
+  } = useConnect({
+    onSuccess(data) {
+      setConnectModalShow(false);
+    },
+    chainId: binanceChainId,
+  });
   const { disconnect } = useDisconnect({
     onSuccess(data) {
-      setModalShow(false);
+      setConnectModalShow(false);
+      setSwitchAlertModalShow(false);
     },
   });
   const { address, isConnected } = useAccount();
   const { chain } = useNetwork();
-  const { chains, pendingChainId, switchNetwork } = useSwitchNetwork();
-  console.log(switchNetwork);
-  // console.log({ chain, chains });
+  const { switchNetwork, isLoading: switchIsLoading } = useSwitchNetwork({
+    onSuccess(data) {
+      setSwitchAlertModalShow(false);
+    },
+  });
+
   // web3 hook end
   const connector = connectors[0]; // 連接Metamask
   const history = useHistory(null);
 
-  // 判斷wallet狀態
-  // const walletHandler = () => {
-  //   if (isConnected) {
-  //     return (
-  //       <div>
-  //         <div>{address}</div>
-  //         <div>Connected to {connector.name}</div>
-  //       </div>
-  //     );
-  //   } else {
-  //     if (isLoading) {
-  //       return <span className="t-16 font-LufgaBold">Connecting...</span>;
-  //     } else {
-  //       return (
-  //         <div
-  //           className="navbar-wallet cursor-pointer "
-  //           onClick={() => connect({ connector })}
-  //           disabled={!connector.ready}
-  //         >
-  //           <img src={navbarWallet} alt="icon-wallet" className="" />
-  //           {/* error 除錯 */}
-  //           {/* {error && <div>{error.message}</div>} */}
-  //         </div>
-  //       );
-  //     }
-  //   }
-  // };
+  /* handler start */
+  /* hander end */
 
-  // handler start
-  const checkIfOnChain = () => {
-    if (!chain) return;
-    if (chain?.id !== 97) {
-      switchNetwork({ chainId: 97 });
-    }
-  };
-
+  /* useEffect start */
+  //連線後去看他如果switch chain 要擋下
   useEffect(() => {
-    checkIfOnChain();
-  }, [isConnected]);
-  // hander end
+    if (!chain || !switchNetwork) return;
+    if (chain?.id !== binanceChainId) {
+      // show modal to switch chain or log out
+      setSwitchAlertModalShow(true);
+    }
+  }, [chain, switchNetwork]);
+  /* useEffect end */
 
-  const modalContent = (
+  const connectModalContent = (
     <div className="d-flex flex-column justify-content-center align-items-center">
       <button
         className="connect-wallet-metamask-btn mb-3"
         onClick={() => connect({ connector })}
-        disabled={!connector.ready || isLoading || isConnected}
+        disabled={!connector.ready || connectIsLoading || isConnected}
       >
-        {isLoading && (
+        {connectIsLoading && (
           <div className="spinner-container">
             <Spinner />
           </div>
@@ -108,7 +90,7 @@ const Navbar = forwardRef((_, ref) => {
           <img src={metamaskLogo} alt="metamask-button" />
         </div>
       </button>
-      <button className="connect-wallet-metamask-btn">
+      <button className="connect-wallet-metamask-btn" disabled={true}>
         <div>
           <img src={walletconnectLogo} alt="walletconnect-button" />
         </div>
@@ -120,14 +102,43 @@ const Navbar = forwardRef((_, ref) => {
       )}
     </div>
   );
+  const switchAlertModalContent = (
+    <div className="d-flex flex-column justify-content-center align-items-center">
+      <p className="mb-5">
+        Currently this page only supported in BNB Smart Chain Testnet. Please
+        switch your network to continue.
+      </p>
+      <button
+        className="switch-network-btn mb-4"
+        onClick={() => switchNetwork(binanceChainId)}
+        disabled={switchIsLoading}
+      >
+        {switchIsLoading && (
+          <div className="spinner-container">
+            <Spinner />
+          </div>
+        )}
+        <span>Switch network in wallet</span>
+      </button>
+      <button className="disconnect-wallet-btn" onClick={disconnect}>
+        <span>{`Disconnect from ${connector.name}`}</span>
+      </button>
+    </div>
+  );
 
   return (
     <header className="my-navbar">
       <MyModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        content={modalContent}
+        show={connectModalShow}
+        onHide={() => setConnectModalShow(false)}
+        content={connectModalContent}
         title={'Connect Wallet'}
+      />
+      <MyModal
+        show={switchAlertModalShow}
+        content={switchAlertModalContent}
+        title={'Check your network'}
+        close={false}
       />
       <AnimatePresence>
         {sidebarShow && (
@@ -191,7 +202,9 @@ const Navbar = forwardRef((_, ref) => {
                   </span>
                 </li>
                 <li>
-                  <span onClick={() => history.push('/market')}>Market</span>
+                  <span onClick={() => history.push('/market/marketplace')}>
+                    Market
+                  </span>
                 </li>
                 <li>
                   <span>DApp</span>
@@ -214,7 +227,7 @@ const Navbar = forwardRef((_, ref) => {
         {!isConnected ? (
           <div
             className="navbar-wallet cursor-pointer "
-            onClick={() => setModalShow(true)}
+            onClick={() => setConnectModalShow(true)}
             disabled={!connector.ready}
           >
             <img src={navbarWallet} alt="icon-wallet" className="" />
@@ -224,7 +237,7 @@ const Navbar = forwardRef((_, ref) => {
         ) : (
           <button
             className="connected-wallet-btn"
-            onClick={() => setModalShow(true)}
+            onClick={() => setConnectModalShow(true)}
           >
             <div>{shortenAddress(address)}</div>
           </button>

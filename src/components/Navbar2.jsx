@@ -68,13 +68,19 @@ const Navbar2 = () => {
           <div className="navbar2-pc">
             <ul className="navbar2-title w-100 d-flex justify-content-between t-16 font-BoldenVan">
               <li>
-                <span>Blind Box</span>
+                <Link to="/market/blind-box">
+                  <span>Blind Box</span>
+                </Link>
               </li>
               <li>
-                <span>Marketplace</span>
+                <Link to="/market/marketplace">
+                  <span>Marketplace</span>
+                </Link>
               </li>
               <li>
-                <span>My NFTs</span>
+                <Link to="/market/my-nfts">
+                  <span>My NFTs</span>
+                </Link>
               </li>
             </ul>
           </div>

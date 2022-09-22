@@ -3,10 +3,12 @@ import MonsterCard1 from '../../../../assets/images/home/home_banner_01.png';
 import { RiDiscordLine } from 'react-icons/ri';
 import { AiOutlineTwitter } from 'react-icons/ai';
 import { FaTelegramPlane } from 'react-icons/fa';
+import { motion as m } from 'framer-motion';
+import { flipCardVariants } from '../../../../utils/constants/framerConstant';
 
 const WhatsnewCard = () => {
   return (
-    <div className="font-LufgaBold p-lg-5">
+    <m.div variants={flipCardVariants} className="font-LufgaBold p-lg-5">
       <div className="whatsnew-card-img">
         <img src={MonsterCard1} alt="monster-card" />
       </div>
@@ -20,7 +22,7 @@ const WhatsnewCard = () => {
         <AiOutlineTwitter className="text-primary t-18 my-3 mx-3" />
         <FaTelegramPlane className="text-primary t-18 my-3 mx-3" />
       </div>
-    </div>
+    </m.div>
   );
 };
 

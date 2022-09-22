@@ -44,3 +44,24 @@ export const maskVariants = {
     opacity: 0,
   },
 };
+
+export const flipVariants = {
+  visible: {
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+export const flipCardVariants = {
+  hidden: { opacity: 0, rotateX: 80 },
+  visible: {
+    opacity: 1,
+    rotateX: 0,
+    transition: {
+      ease: 'easeInOut',
+      duration: 0.8,
+    },
+  },
+};

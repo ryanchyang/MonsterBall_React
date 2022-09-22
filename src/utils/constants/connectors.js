@@ -31,12 +31,12 @@ const binanceChain = {
 
 const binanceTestChain = {
   id: 97,
-  name: 'BSC Testnet',
-  network: 'BSC Testnet',
+  name: 'Binance Smart Chain Testnet',
+  network: 'Binance Smart Chain Testnet',
   nativeCurrency: {
     decimals: 18,
     name: 'Binance',
-    symbol: 'BNB',
+    symbol: 'tBNB',
   },
   rpcUrls: {
     default: 'https://data-seed-prebsc-1-s1.binance.org:8545',
@@ -47,7 +47,7 @@ const binanceTestChain = {
       url: 'https://explorer.binance.org/smart-testnet',
     },
   },
-  testnet: false,
+  testnet: true,
 };
 
 export const { chains, provider } = configureChains(
