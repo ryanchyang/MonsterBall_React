@@ -2,11 +2,10 @@ import './Roadmap.scss';
 import { SiTarget } from 'react-icons/si';
 import monster1 from '../../assets/images/home/roadmap_monster_01.png';
 import monster2 from '../../assets/images/home/roadmap_monster_02.png';
-import { forwardRef } from 'react';
 
-const Roadmap = forwardRef((_, ref) => {
+const Roadmap = () => {
   return (
-    <section ref={ref} className="roadmap-area">
+    <section id="roadmap" className="roadmap-area">
       <div className="roadmap-monster01-img">
         <img src={monster1} alt="roadmap-monster" />
       </div>
@@ -117,6 +116,6 @@ const Roadmap = forwardRef((_, ref) => {
       </div>
     </section>
   );
-});
+};
 
 export default Roadmap;

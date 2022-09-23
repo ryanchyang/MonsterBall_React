@@ -1,6 +1,5 @@
 import './PlayNow.scss';
 import playerNowMonster from '../../assets/images/home/home_monster_02.png';
-import Ripples from 'react-ripples';
 
 const PlayNow = () => {
   return (

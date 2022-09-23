@@ -12,28 +12,38 @@ import Partner from '../components/Home/Partner';
 import Technology from '../components/Home/Technology';
 import Footer from '../components/Footer';
 import useCurrentWidth from '../utils/hooks/useCurrentWidth';
-import { useRef } from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
-  const gamePlayRef = useRef(null);
-  const roadmapRef = useRef(null);
-  const nftItemRef = useRef(null);
-  const refs = { gamePlayRef, roadmapRef, nftItemRef };
+  const location = useLocation(null);
   const currentWidth = useCurrentWidth();
+
+  useEffect(() => {
+    if (location.hash) {
+      let elem = document.getElementById(location.hash.slice(1));
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
     <>
+      <Navbar />
       <main>
-        <Navbar ref={refs} />
         <Banner />
         <AddressGroup currentWidth={currentWidth} />
         {currentWidth > Number(process.env.REACT_APP_LG_WIDTH) && (
-          <IntroVideo ref={gamePlayRef} />
+          <IntroVideo />
         )}
         <Whatsnew />
         <PlayNow />
-        <Roadmap ref={roadmapRef} />
+        <Roadmap />
         <ToMarket />
-        <NftItem ref={nftItemRef} />
+        <NftItem />
         <Team />
         <Partner />
         <Technology />

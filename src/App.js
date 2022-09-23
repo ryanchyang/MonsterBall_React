@@ -1,8 +1,8 @@
 import './App.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
 import Market from './pages/Market';
+import Invite from './pages/Invite';
 
 function App() {
   return (
@@ -13,6 +13,9 @@ function App() {
         </Route>
         <Route path="/market">
           <Market />
+        </Route>
+        <Route path="/invite">
+          <Invite />
         </Route>
       </Switch>
     </Router>

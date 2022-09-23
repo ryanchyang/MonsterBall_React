@@ -4,7 +4,7 @@ import introVideo from '../../assets/video/index_vedio.mp4';
 
 const IntroVideo = forwardRef((_, ref) => {
   return (
-    <>
+    <div id="video">
       <video
         ref={ref}
         className="introVideo"
@@ -18,7 +18,7 @@ const IntroVideo = forwardRef((_, ref) => {
       >
         <source src={introVideo} type="video/mp4" />
       </video>
-    </>
+    </div>
   );
 });
 

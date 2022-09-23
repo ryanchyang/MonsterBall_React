@@ -26,7 +26,9 @@
       padding: 5px 12px;
       font-size: 2rem;
       text-align: center;
-      span {
+      span,
+      a {
+        color: #084a4c;
         cursor: pointer;
       }
     }

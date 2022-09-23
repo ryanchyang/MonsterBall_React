@@ -44,7 +44,7 @@ const binanceTestChain = {
   blockExplorers: {
     default: {
       name: 'BSC Testnet Network',
-      url: 'https://explorer.binance.org/smart-testnet',
+      url: 'https://testnet.bscscan.com/',
     },
   },
   testnet: true,

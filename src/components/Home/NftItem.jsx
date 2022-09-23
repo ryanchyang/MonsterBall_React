@@ -5,9 +5,9 @@ import nftItem from '../../assets/images/home/nftItem/nft_item_01.png';
 // Import Swiper styles
 import 'swiper/css';
 
-const NftItem = forwardRef((_, ref) => {
+const NftItem = () => {
   return (
-    <section ref={ref} className="nft-item-area">
+    <section id="nft_item" className="nft-item-area">
       <div className="d-flex flex-column align-items-center col-lg-7 mx-auto">
         <h2 className="mb-4 text-center">Various combinations</h2>
         <p>
@@ -77,6 +77,6 @@ const NftItem = forwardRef((_, ref) => {
       </div>
     </section>
   );
-});
+};
 
 export default NftItem;

@@ -130,6 +130,10 @@ input:focus {
   box-shadow: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

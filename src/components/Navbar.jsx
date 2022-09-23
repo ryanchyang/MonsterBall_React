@@ -23,8 +23,8 @@ import { AnimatePresence } from 'framer-motion';
 
 const binanceChainId = 97;
 
-const Navbar = forwardRef((_, ref) => {
-  const { gamePlayRef, roadmapRef, nftItemRef } = ref;
+const Navbar = () => {
+  // const { gamePlayRef, roadmapRef, nftItemRef } = ref;
   const [sidebarShow, setSidebarShow] = useState(false);
   const [connectModalShow, setConnectModalShow] = useState(false);
   const [switchAlertModalShow, setSwitchAlertModalShow] = useState(false);
@@ -141,9 +141,9 @@ const Navbar = forwardRef((_, ref) => {
         close={false}
       />
       <AnimatePresence>
-        {sidebarShow && (
+        {/* {sidebarShow && (
           <SideNavbar ref={ref} setSidebarShow={setSidebarShow} />
-        )}
+        )} */}
       </AnimatePresence>
       <div className="navbar-content w-100 d-flex justify-content-between align-items-center">
         <div className="w-100 d-flex align-items-start">
@@ -161,15 +161,9 @@ const Navbar = forwardRef((_, ref) => {
             <div className="navbar-pc">
               <ul className="w-100 d-flex justify-content-between t-16 font-BoldenVan">
                 <li>
-                  <span
-                    onClick={() => {
-                      gamePlayRef.current.scrollIntoView({
-                        behavior: 'smooth',
-                      });
-                    }}
-                  >
-                    Gamplay
-                  </span>
+                  <Link to="/#video">
+                    <span>Gamplay</span>
+                  </Link>
                 </li>
                 <li>
                   <span
@@ -184,22 +178,14 @@ const Navbar = forwardRef((_, ref) => {
                   </span>
                 </li>
                 <li>
-                  <span
-                    onClick={() => {
-                      roadmapRef.current.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    Road map
-                  </span>
+                  <Link to="/#roadmap">
+                    <span>Road map</span>
+                  </Link>
                 </li>
                 <li>
-                  <span
-                    onClick={() => {
-                      nftItemRef.current.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    NFT item
-                  </span>
+                  <Link to="/#nft_item">
+                    <span>NFT item</span>
+                  </Link>
                 </li>
                 <li>
                   <span onClick={() => history.push('/market/marketplace')}>
@@ -210,7 +196,7 @@ const Navbar = forwardRef((_, ref) => {
                   <span>DApp</span>
                 </li>
                 <li>
-                  <span>Invite</span>
+                  <span onClick={() => history.push('/invite')}>Invite</span>
                 </li>
                 <li>
                   <span>Play</span>
@@ -248,6 +234,6 @@ const Navbar = forwardRef((_, ref) => {
       </div>
     </header>
   );
-});
+};
 
 export default Navbar;
